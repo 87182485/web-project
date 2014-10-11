@@ -1,0 +1,6 @@
+<rating ng-model="movie.rating" max="10" readonly="true"></rating>
+<div class="row">
+	<div class="col-md-3" ng-repeat="genre in movie.genre">
+		<div class="label" ng-class="fun.tagColor(genre)">{{genre}}</div>
+	</div>
+</div>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="angular-material/angular-material.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" type="text/css" href="css/angular-busy.css">
+    <link rel="stylesheet" type="text/css" href="css/star-rating.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="FunApp">
+    <div class="container" ng-controller="FunController as fun">
+        <div class="center-block">
+            <div class="container">
+                  <material-toolbar class="theme-dark-tff material-medium-tall" style="padding-top:15px;">
+                  <div class="material-toolbar-tools dark">
+                         <material-input-group>
+                         <label for="search">Search: </label>
+                         <material-input id="search" ng-model="fun.search"></material-input>
+                         </material-input-group>
+                         <div ng-repeat="c in fun.categories">
+                            <material-checkbox aria-label="Checkbox 1">
+                             {{c}}
+                            </material-checkbox>
+                         </div>
+                     </material-checkbox>
+                  </div>
+                  </material-toolbar>
+                <material-content class="row movies-row" cg-busy="{promise:fun.promise,delay:500, minDuration:1000}">
+                <material-card class="movie-item col-md-3" ng-repeat="movie in fun.movies | filter:fun.search | filter:fun.category">
+                <h3>{{movie.title}}</h3>
+                <genre-color movie="movie" ng-model="movie"/>
+                </material-card>
+                </material-content>
+                <!-- <img src="{{movie.image}}"> -->
+                <div/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="angular/angular.js"></script>
+<script src="js/ui-bootstrap-tpls-0.11.2.js"></script>
+<script src="angular/angular-animate.js"></script>
+<script src="angular/angular-aria.js"></script>
+<script src="angular-material/hammer.js"></script>
+<script src="angular-material/angular-material.js"></script>
+<script src="js/angular-busy.js"></script>
+<script src="js/star-rating.js"></script>
+<script>
+        // Include app dependencies on ngAnimate and ngMaterial
+        (function(){
+            angular.module( 'FunApp', ['ngAnimate','ngMaterial', 'cgBusy', 'ui.bootstrap'] )
+        })();
+        </script>
+        <script src="js/fun/fun-constant.js"></script>        
+        <script src="js/fun/services/fun-service.js"></script>          
+        <script src="js/fun/controllers/fun-controller.js"></script>
+        <script src="js/fun/directives/genre-directive.js"></script>
+        <script src="js/fun/directives/tfFloat.js"     
+    </body>
+    </html>

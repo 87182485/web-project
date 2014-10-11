@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="angular-material/angular-material.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/login.css"
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body ng-app="MyApp">
+    <div class="container">
+        <div class="center-block">
+            <div class="container">
+                <div ng-controller="LoginController as loginController">
+                    <form role="form" class="form-login" ng-submit="loginController.login()">
+                        <material-input-group>
+                        <label for="username">User Name</label>
+                        <material-input id="username" ng-model="loginController.loginModel.username" autofocus required>
+                    </material-input>
+                </material-input-group>
+                <material-input-group>
+                <label for="password">Password</label>
+                <material-input id="password" ng-model="loginController.loginModel.password" type="password" required>
+            </material-input>
+        </material-input-group>
+        <material-button class="material-theme-light-blue" id="login" type="submit">Log in</material-button>
+    </form>
+</div>
+</div>
+</div>
+</div>
+
+<script src="angular/angular.js"></script>
+<script src="angular/angular-animate.js"></script>
+<script src="angular/angular-aria.js"></script>
+<script src="angular-material/hammer.js"></script>
+<script src="angular-material/angular-material.js"></script>
+<script>
+
+        // Include app dependencies on ngAnimate and ngMaterial
+        (function(){
+            angular.module( 'MyApp', [ 'ngAnimate', 'ngMaterial' ] );
+        })();
+        </script>
+        <script src="js/angular/services/login-session-service.js"></script>
+        <script src="js/angular/services/login-service.js"></script>
+        <script src="js/angular/controllers/login-controller.js"></script>
+</body>
+</html>
