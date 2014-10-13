@@ -30,13 +30,13 @@ function FunService($http, $q){
 	function getTagColor(tag){
 		if(angular.equals(tag, 'Action'))
 		{
-			return 'btn-info';
+			return 'label-info';
 		}else if(angular.equals(tag, 'Sci-Fi')){
-			return 'btn-success';
+			return 'label-success';
 		}else if(angular.equals(tag, 'Horror')){
-			return 'btn-danger';
+			return 'label-danger';
 		}else{
-			return 'btn-warning';
+			return 'label-warning';
 		}
 	}
 }

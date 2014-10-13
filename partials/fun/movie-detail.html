@@ -1,0 +1,11 @@
+<material-dialog aria-label="Bluth's Original Frozen Banana Stand"  ng-controller="FunDialogController as funDialog">
+  <div class="dialog-content">
+      <h2>{{selectedMovie.title}}</h2>
+        <img src="{{selectedMovie.image}}">
+  </div>
+  <div class="dialog-actions" layout="horizontal" layout-align="end">
+    <material-button class="material-button-raised material-button-colored" ng-click="funDialog.closeDialog()">
+      Okay
+    </material-button>
+  </div>
+</material-dialog>

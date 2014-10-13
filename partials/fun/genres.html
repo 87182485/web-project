@@ -1,4 +1,7 @@
-<rating ng-model="movie.rating" max="10" readonly="true"></rating>
+<div class="row" ng-controller="FunDialogController as funDialog">
+	<rating class="col-md-8 col-sm-12" ng-model="movie.rating" max="10" readonly="true"></rating>
+	<button class="col-md-2 col-md-offset-2 btn btn-xs" ng-click="funDialog.makeDialog($event,movie)">View</button>
+</div>
 <div class="row">
 	<div class="col-md-3" ng-repeat="genre in movie.genre">
 		<div class="label" ng-class="fun.tagColor(genre)">{{genre}}</div>

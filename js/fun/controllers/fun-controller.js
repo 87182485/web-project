@@ -9,7 +9,8 @@
 		vm.movies = [];
 		vm.promise = null;
 
-		vm.search = ""
+		vm.search = "";
+		vm.sortBy = "title";
 
 		vm.categories = ["Action", "Sci-Fi"];
 
