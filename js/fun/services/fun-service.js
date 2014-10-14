@@ -1,42 +1,47 @@
-angular.module('FunApp')
-.factory('FunService', FunService);
 
-FunService.$inject = ['$http', '$q'];
+(function(){
+	angular.module('FunApp')
+	.factory('FunService', FunService);
 
-function FunService($http, $q){
-	var defer = $q.defer();
+	FunService.$inject = ['$http', '$q'];
 
-	var getMovies = getMovies;
+	function FunService($http, $q){
+		var defer = $q.defer();
 
-	var getTagColor = getTagColor;
+		var getMovies = getMovies;
 
-	return ({
-		getMovies : getMovies,
-		getTagColor : getTagColor
-	})
+		var getTagColor = getTagColor;
 
-	function getMovies(url){
-		$http.get(url)
-		.then(function(data){
-			defer.resolve(data);
-		},
-		function(error){
-			defer.reject(error);
-		})
+		var service = {
+			getMovies : getMovies,
+			getTagColor : getTagColor
+		};
 
-		return defer.promise;
-	}
+		return service;
 
-	function getTagColor(tag){
-		if(angular.equals(tag, 'Action'))
-		{
-			return 'label-info';
-		}else if(angular.equals(tag, 'Sci-Fi')){
-			return 'label-success';
-		}else if(angular.equals(tag, 'Horror')){
-			return 'label-danger';
-		}else{
-			return 'label-warning';
+		function getMovies(url){
+			$http.get(url)
+			.then(function(data){
+				defer.resolve(data);
+			},
+			function(error){
+				defer.reject(error);
+			})
+
+			return defer.promise;
+		}
+
+		function getTagColor(tag){
+			if(angular.equals(tag, 'Action'))
+			{
+				return 'label-info';
+			}else if(angular.equals(tag, 'Sci-Fi')){
+				return 'label-success';
+			}else if(angular.equals(tag, 'Horror')){
+				return 'label-danger';
+			}else{
+				return 'label-warning';
+			}
 		}
 	}
-}
+})();
